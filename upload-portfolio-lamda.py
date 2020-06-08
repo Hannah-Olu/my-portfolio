@@ -1,19 +1,20 @@
 import boto3
-from botocore.client import client
 import zipfile
 import mimetypes
+import StringIO
+import mimetypes
 
-s3 = boto3.resource('s3', config= Config(signature_version='s3v4'))
+s3 = boto3.resource('s3')
 
-portfolio_bucket = s3.Bucket('portfoliobuild.hannah.info')
+portfolio_bucket = s3.Bucket('portfolio.hanaolujekun.com')
+build_bucket = s3.Bucket('portfoliobuild.hanaolujekun.com')
+
 portfolio_zip = StringIO.StringIO()
-build_bucketdownload_fileobj('portfoliobuild.zip', portfolio.zip)
+build_bucket.download_fileobj('portfoliobuild.zip', portfolio_zip)
 
 with zipfile.ZipFile(portfolio_zip) as myzip:
-with zipfile.ZipFile (portfolio_zip) as myzip: 
-     for nm in myzip.namelist(): 
-        obj = myzi.open(nm)
-        portfolio_bucket.upload_fileobj(obj,nm,
-        ExtraArgs={'contentType': mimetypes.guess_type(nm)[0]})
-        portfolio_bucket.Object(nm).Acl(put)(ACL='public-read')
-        
+   for nm in myzip.namelist():
+      obj = myzip.open(nm)
+      portfolio_bucket.upload_fileobj(obj, nm, 
+         ExtraArgs=({'ContentType': mimetypes.guess_type(nm)[0]}))
+      portfolio_bucket.Object(nm).Acl().put(ACL='public-read')
