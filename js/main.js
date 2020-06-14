@@ -34,5 +34,17 @@ const myWork = [
       -Paul Marity`
     }
   },
+  {
+    'title': "Portrait",
+    'href': "https://example.com",
+    'desc': "Quis enim qui anim amet ipsum nulla in duis aliquip anim.",
+    'image': {
+      'desc': "example screenshot of a project involving cats",
+      'src': "images/portrait.png",
+      'comment': `Cloud is about how you do computing, and not where you do computing
+
+      -Paul Marity`
+    }
+  },
 ]
 ReactDOM.render(<ExampleWork work={myWork} />, document.getElementById('example-work'));
