@@ -40,7 +40,7 @@ const myWork = [
     'desc': "Quis enim qui anim amet ipsum nulla in duis aliquip anim.",
     'image': {
       'desc': "example screenshot of a project involving cats",
-      'src': "images/portrait.png",
+      'src': "images/portrait.jpg",
       'comment': `Cloud is about how you do computing, and not where you do computing
 
       -Paul Marity`
