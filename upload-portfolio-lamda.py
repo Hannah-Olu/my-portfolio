@@ -44,6 +44,6 @@ def lambda_handler(event, context):
             codepipeline.put_job_success_result(jobId=job["id"])
 
     except:
-        topic.public(Subject="Portfolio Deploy Failed", Message="The portfolio was not deployed successfully")
+        topic.publish(Subject="Portfolio Deploy Failed", Message="The portfolio was not deployed successfully")
     return 'Job done!'
 
