@@ -11,7 +11,7 @@ def lambda_handler(event, context):
         'arn:aws:sns:us-east-1:524157238605:deployPortfolioTopic')
     location = {
         "bucketName": "codebuild.clouddevotee2.com",
-        "objectKey": "codebuild.clouddevotee2.com"
+        "objectKey": "clouddevoteebuild.zip"
     }
     try:
         job = event.get("CodePipeline.job")
