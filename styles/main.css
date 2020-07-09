@@ -21,23 +21,23 @@
 */
 
 .background--skyBlue {
-  background-color: rgb(52, 152, 219);
+  background-color: rgb(36, 37, 130);
 }
 
 .color--skyBlue {
-  color: rgb(52, 152, 219);
+  color: rgb(36, 37, 130);
 }
 
 .color--cloud {
-  color: rgb(236, 240, 241);
+  color: rgb(255, 255, 255);
 }
 
 .color--grey {
-  color: rgb(127, 140, 141);
+  color: rgb(153,115,142);
 }
 
 .color--darkgrey {
-  color: rgb(44, 62, 80);
+  color: rgb(rgb(246,76,114));
 }
 
 .section__example {
@@ -55,7 +55,7 @@ html {
 }
 
 body {
-  font-family: 'Bad Script', cursive;
+  font-family: 'Abril Fatface', serif;
   margin: 0;
 }
 
@@ -160,19 +160,9 @@ h1, h2, h3, h4, h5, h6 {
   margin-left: 2rem;
 }
 
-.section--social {
-  float: right;
-  line-height: 10rem;
-  margin-right: 2rem;
-}
 
-.social {
-  margin-right: 0.75rem;
-}
 
-.socialWrapper:last-child .social {
-  margin-right: 0;
-}
+
 
 .socialWrapper {
   display: inline-block;

@@ -1,3 +1,11 @@
 # Hannah's Portfolio
 
-Technology used
+##Technology used
+AWS And ReactJs
+
+Brew
+Git
+SSH
+CSS
+Font Awesome
+Google Fonts
