@@ -10,8 +10,8 @@ def lambda_handler(event, context):
     topic = sns.Topic(
         'arn:aws:sns:us-east-1:524157238605:deployPortfolioTopic')
     location = {
-        "bucketName": "portfoliobuild.hanaolujekun.com",
-        "objectKey": "portfoliobuild.zip"
+        "bucketName": "codebuild.clouddevotee2.com",
+        "objectKey": "clouddevoteebuild.zip"
     }
     try:
         job = event.get("CodePipeline.job")
@@ -24,7 +24,7 @@ def lambda_handler(event, context):
         print("Building portfolio from " + str(location))
 
         s3 = boto3.resource('s3')
-        portfolio_bucket = s3.Bucket('portfolio.hanaolujekun.com')
+        portfolio_bucket = s3.Bucket('build.clouddevotee.com')
         build_bucket = s3.Bucket(location["bucketName"])
 
         portfolio_zip = StringIO.StringIO()
@@ -44,5 +44,5 @@ def lambda_handler(event, context):
             codepipeline.put_job_success_result(jobId=job["id"])
 
     except:
-        topic.public(Subject="Portfolio Deploy Failed", Message="The portfolio was not deployed successfully")
+        topic.publish(Subject="Portfolio Deploy Failed", Message="The portfolio was not deployed successfully")
     return 'Job done!'
