@@ -28,6 +28,7 @@ def lambda_handler(event, context):
         build_bucket = s3.Bucket(location["bucketName"])
 
         portfolio_zip = StringIO.StringIO()
+        print("Location ObjectKey", build_bucket)
         build_bucket.download_fileobj(location["objectKey"], portfolio_zip)
 
         with zipfile.ZipFile(portfolio_zip) as myzip:
@@ -43,7 +44,7 @@ def lambda_handler(event, context):
             codepipeline = boto3.client('codepipeline')
             codepipeline.put_job_success_result(jobId=job["id"])
 
-    except:
+    except Exception as e:
+        print("Exception: ", e)
         topic.publish(Subject="Portfolio Deploy Failed", Message="The portfolio was not deployed successfully")
     return 'Job done!'
-
